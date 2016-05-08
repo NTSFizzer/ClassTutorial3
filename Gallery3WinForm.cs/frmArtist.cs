@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using Gallery3WinForm.ServiceReference1;
@@ -64,26 +65,27 @@ namespace Gallery3WinForm
             //    rbByDate.Checked = true;
             //}
 
-            //lstWorks.DataSource = null;
-            //lstWorks.DataSource = _WorksList;
+            lstWorks.DataSource = null;
+            if (_Artist.Works != null)
+                lstWorks.DataSource = _Artist.Works.ToList();
             //lblTotal.Text = Convert.ToString(_WorksList.GetTotalValue());
         }
 
         public void UpdateForm()
         {
-            //txtName.Text = _Artist.Name;
-            //txtSpeciality.Text = _Artist.Speciality;
-            //txtPhone.Text = _Artist.Phone;
+            txtName.Text = _Artist.Name;
+            txtSpeciality.Text = _Artist.Speciality;
+            txtPhone.Text = _Artist.Phone;
             //_WorksList = _Artist.WorksList;
 
-            //frmMain.Instance.GalleryNameChanged += new frmMain.Notify(updateTitle);
-            //updateTitle(_Artist.ArtistList.GalleryName);
+           // frmMain.Instance.GalleryNameChanged += new frmMain.Notify(updateTitle);
+          //  updateTitle(_Artist.ArtistList.GalleryName);
         }
 
         public void SetDetails(clsArtist prArtist)
         {
             _Artist = prArtist;
-           // txtName.Enabled = string.IsNullOrEmpty(_Artist.Name);
+            txtName.Enabled = string.IsNullOrEmpty(_Artist.Name);
             UpdateForm();
             UpdateDisplay();
           //  frmMain.Instance.GalleryNameChanged += new frmMain.Notify(updateTitle);
@@ -93,9 +95,9 @@ namespace Gallery3WinForm
 
         private void pushData()
         {
-          //  _Artist.Name = txtName.Text;
-          //  _Artist.Speciality = txtSpeciality.Text;
-         //   _Artist.Phone = txtPhone.Text;
+            _Artist.Name = txtName.Text;
+            _Artist.Speciality = txtSpeciality.Text;
+            _Artist.Phone = txtPhone.Text;
             //_WorksList.SortOrder = _SortOrder; // no longer required, updated with each rbByDate_CheckedChanged
         }
 
@@ -114,7 +116,7 @@ namespace Gallery3WinForm
         {
             try
             {
-            //    _WorksList.EditWork(lstWorks.SelectedIndex);
+                (lstWorks.SelectedValue as clsWork).EditDetails(); //works out which artwork has be edited with
                 UpdateDisplay();
                 frmMain.Instance.UpdateDisplay();
             }
@@ -145,7 +147,7 @@ namespace Gallery3WinForm
                 {
                     Program.SvcClient.InsertArtist(_Artist);
                     frmMain.Instance.UpdateDisplay();
-                    txtName.Enabled = false; //disables editing of artist name
+                    txtName.Enabled = true; 
             }
                 else
                     Program.SvcClient.UpdateArtist(_Artist);

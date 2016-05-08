@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Version_3_C.Properties {
+namespace Gallery3Winform.Properties {
     using System;
     
     

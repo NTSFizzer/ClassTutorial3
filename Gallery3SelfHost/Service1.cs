@@ -15,8 +15,7 @@ namespace Gallery3Selfhost
                     .Select(lcArtist => lcArtist.Name)
                     .ToList();
         }
-
-
+        
         //this access the DTO.cs class file
         public clsArtist GetArtist(string prArtistName)
         //this is a service method to use clsArtist
@@ -28,11 +27,12 @@ namespace Gallery3Selfhost
                     .Where(Artist => Artist.Name == prArtistName)
                     .FirstOrDefault();
                 clsArtist lcArtistDTO = new clsArtist()
-                { Name = lcArtist.Name, Speciality = lcArtist.Speciality, Phone = lcArtist.Phone };
+                { Name = lcArtist.Name, Speciality = lcArtist.Speciality, Phone = lcArtist.Phone, Works = new List<clsWork>() };
+                foreach (Work item in lcArtist.Works)
+                    lcArtistDTO.Works.Add(item.MapToDTO());
                 return lcArtistDTO;
             }
         }
-
 
         //A generic method to CRUD any of the entities
         private int process<TEntity>(TEntity prItem, 
