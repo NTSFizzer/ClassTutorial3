@@ -121,7 +121,5 @@ namespace Gallery3WinForm
           //  _ArtistList.GalleryName = new InputBox("Enter Gallery Name:").Answer;
           //  GalleryNameChanged(_ArtistList.GalleryName);
         }
-
-
     }
 }

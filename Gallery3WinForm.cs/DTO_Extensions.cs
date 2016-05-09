@@ -5,15 +5,25 @@ namespace Gallery3WinForm.ServiceReference1
     public abstract partial class clsWork
     {
 
-        private string _Name;
-        private DateTime _Date = DateTime.Now;
-
         public override string ToString()
         {
-            return _Name + "\t" + _Date.ToShortDateString();
+            return Name + "\t" + Date.ToShortDateString();
         }
 
         public abstract void EditDetails();
+
+        public static readonly string FACTORY_PROMPT = "Enter P for Painting, S for Sculpture and H for Photograph";
+
+        public static clsWork NewWork(char prChoice)
+        {
+            switch (char.ToUpper(prChoice))
+            {
+                case 'P': return new clsPainting();
+                case 'S': return new clsSculpture();
+                case 'H': return new clsPhotograph();
+                default: return null;
+            }
+        }
     }
 
     public partial class clsPainting

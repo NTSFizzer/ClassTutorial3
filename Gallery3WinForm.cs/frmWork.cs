@@ -1,3 +1,4 @@
+using Gallery3WinForm;
 using Gallery3WinForm.ServiceReference1;
 using System;
 using System.Windows.Forms;
@@ -22,11 +23,24 @@ namespace Gallery3Winform
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if (isValid())
+            try
             {
-                pushData();
-                Close();
+                if (isValid())
+                {
+                    pushData();
+                    if (txtName.Enabled)
+                        Program.SvcClient.InsertWork(_Work);
+                    else
+                        Program.SvcClient.UpdateWork(_Work);
+                    Close();
+                }
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message + "Try again?");
+            }
+           
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -44,6 +58,7 @@ namespace Gallery3Winform
             txtName.Text = _Work.Name;
             txtCreation.Text = _Work.Date.ToShortDateString();
             txtValue.Text = _Work.Value.ToString();
+            txtName.Enabled = string.IsNullOrEmpty(_Work.Name);  //prevent editing artist works names - eg the sculpture name
         }
 
         protected virtual void pushData()
@@ -52,6 +67,5 @@ namespace Gallery3Winform
             _Work.Date = DateTime.Parse(txtCreation.Text);
             _Work.Value = decimal.Parse(txtValue.Text);
         }
-
     }
 }

@@ -12,7 +12,7 @@ namespace Gallery3WinForm
         /// </summary>
         ///
 
-        public static ServiceReference1.Service1Client SvcClient = new ServiceReference1.Service1Client();
+        public static Service1Client SvcClient = new Service1Client();
 
         [STAThread]
         static void Main()

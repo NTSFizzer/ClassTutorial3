@@ -40,72 +40,80 @@ namespace Gallery3Winform
             // 
             // txtValue
             // 
-            this.txtValue.Location = new System.Drawing.Point(97, 81);
+            this.txtValue.Location = new System.Drawing.Point(146, 131);
+            this.txtValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtValue.Name = "txtValue";
-            this.txtValue.Size = new System.Drawing.Size(96, 20);
+            this.txtValue.Size = new System.Drawing.Size(142, 29);
             this.txtValue.TabIndex = 3;
             // 
             // Label2
             // 
-            this.Label2.Location = new System.Drawing.Point(9, 84);
+            this.Label2.Location = new System.Drawing.Point(14, 136);
+            this.Label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(80, 16);
+            this.Label2.Size = new System.Drawing.Size(120, 26);
             this.Label2.TabIndex = 46;
             this.Label2.Text = "Value  $";
             // 
             // txtCreation
             // 
-            this.txtCreation.Location = new System.Drawing.Point(97, 49);
+            this.txtCreation.Location = new System.Drawing.Point(146, 79);
+            this.txtCreation.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCreation.Name = "txtCreation";
-            this.txtCreation.Size = new System.Drawing.Size(96, 20);
+            this.txtCreation.Size = new System.Drawing.Size(142, 29);
             this.txtCreation.TabIndex = 2;
             // 
             // Label1
             // 
-            this.Label1.Location = new System.Drawing.Point(9, 52);
+            this.Label1.Location = new System.Drawing.Point(14, 84);
+            this.Label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(80, 16);
+            this.Label1.Size = new System.Drawing.Size(120, 26);
             this.Label1.TabIndex = 44;
             this.Label1.Text = "Creation Date";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(97, 17);
+            this.txtName.Location = new System.Drawing.Point(146, 27);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(96, 20);
+            this.txtName.Size = new System.Drawing.Size(142, 29);
             this.txtName.TabIndex = 1;
             // 
             // Label3
             // 
-            this.Label3.Location = new System.Drawing.Point(9, 20);
+            this.Label3.Location = new System.Drawing.Point(14, 32);
+            this.Label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label3.Name = "Label3";
-            this.Label3.Size = new System.Drawing.Size(80, 16);
+            this.Label3.Size = new System.Drawing.Size(120, 26);
             this.Label3.TabIndex = 40;
             this.Label3.Text = "Name";
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(225, 44);
+            this.btnCancel.Location = new System.Drawing.Point(338, 71);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(104, 23);
+            this.btnCancel.Size = new System.Drawing.Size(156, 37);
             this.btnCancel.TabIndex = 21;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(225, 12);
+            this.btnOK.Location = new System.Drawing.Point(338, 19);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(104, 23);
+            this.btnOK.Size = new System.Drawing.Size(156, 37);
             this.btnOK.TabIndex = 20;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // frmWork
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 245);
+            this.ClientSize = new System.Drawing.Size(528, 396);
             this.Controls.Add(this.txtValue);
             this.Controls.Add(this.Label2);
             this.Controls.Add(this.txtCreation);
@@ -114,7 +122,10 @@ namespace Gallery3Winform
             this.Controls.Add(this.Label3);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
+            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmWork";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmWork";
             this.ResumeLayout(false);
             this.PerformLayout();

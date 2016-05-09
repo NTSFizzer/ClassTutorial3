@@ -36,43 +36,50 @@ namespace Gallery3Winform
             // 
             // txtMaterial
             // 
-            this.txtMaterial.Location = new System.Drawing.Point(97, 139);
+            this.txtMaterial.Location = new System.Drawing.Point(146, 225);
+            this.txtMaterial.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMaterial.Name = "txtMaterial";
-            this.txtMaterial.Size = new System.Drawing.Size(96, 20);
+            this.txtMaterial.Size = new System.Drawing.Size(142, 29);
             this.txtMaterial.TabIndex = 5;
             // 
             // Label5
             // 
-            this.Label5.Location = new System.Drawing.Point(9, 142);
+            this.Label5.Location = new System.Drawing.Point(14, 229);
+            this.Label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(56, 16);
+            this.Label5.Size = new System.Drawing.Size(84, 26);
             this.Label5.TabIndex = 56;
             this.Label5.Text = "Material";
             // 
             // txtWeight
             // 
-            this.txtWeight.Location = new System.Drawing.Point(97, 107);
+            this.txtWeight.Location = new System.Drawing.Point(146, 173);
+            this.txtWeight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtWeight.Name = "txtWeight";
-            this.txtWeight.Size = new System.Drawing.Size(96, 20);
+            this.txtWeight.Size = new System.Drawing.Size(142, 29);
             this.txtWeight.TabIndex = 4;
             // 
             // Label4
             // 
-            this.Label4.Location = new System.Drawing.Point(9, 110);
+            this.Label4.Location = new System.Drawing.Point(14, 178);
+            this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label4.Name = "Label4";
-            this.Label4.Size = new System.Drawing.Size(56, 16);
+            this.Label4.Size = new System.Drawing.Size(84, 26);
             this.Label4.TabIndex = 54;
             this.Label4.Text = "Weight";
             // 
             // frmSculpture
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(352, 181);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.ClientSize = new System.Drawing.Size(528, 292);
             this.Controls.Add(this.txtWeight);
             this.Controls.Add(this.Label4);
             this.Controls.Add(this.Label5);
             this.Controls.Add(this.txtMaterial);
+            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmSculpture";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sculpture";
             this.Controls.SetChildIndex(this.txtMaterial, 0);
             this.Controls.SetChildIndex(this.Label5, 0);

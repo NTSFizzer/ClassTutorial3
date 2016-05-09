@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Gallery3SelfHost;
-using Selfhost.DTO;
+﻿using Selfhost.DTO;
 
 namespace Gallery3SelfHost
 {
@@ -46,8 +43,6 @@ namespace Gallery3SelfHost
             { Weight = this.Weight, Material = this.Material };
         }
     }
-
-
 }
 
 

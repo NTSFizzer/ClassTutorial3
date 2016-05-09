@@ -103,13 +103,39 @@ namespace Gallery3WinForm
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-          //  string lcReply = new InputBox(clsWork.FACTORY_PROMPT).Answer;
-          //  if (!string.IsNullOrEmpty(lcReply))
+            try
             {
-            //    _WorksList.AddWork(lcReply[0]);
-                UpdateDisplay();
-                frmMain.Instance.UpdateDisplay();
+                string lcReply = new InputBox(clsWork.FACTORY_PROMPT).Answer;
+                if (!string.IsNullOrEmpty(lcReply))     //not cancelled? 
+                {
+                    //    _WorksList.AddWork(lcReply[0]);
+                    clsWork lcWork = clsWork.NewWork(lcReply[0]);
+                    if (lcWork != null)             //valid artwork created here?
+                    {
+                        if (txtName.Enabled)        //new artist not saved?
+                        {
+                            pushData();
+                            Program.SvcClient.InsertArtist(_Artist);
+                            txtName.Enabled = false;
+                        }
+                        lcWork.ArtistName = _Artist.Name;
+                        lcWork.EditDetails();
+                        if (!string.IsNullOrEmpty(lcWork.Name)) //Not cancelled?
+                        {
+                            refreshFormFromDB(_Artist.Name);
+                            frmMain.Instance.UpdateDisplay();
+                        }
+                    }
+                    //UpdateDisplay();
+                    //frmMain.Instance.UpdateDisplay();
+                }
             }
+            catch (Exception ex)
+            {
+
+               MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void lstWorks_DoubleClick(object sender, EventArgs e)
@@ -128,11 +154,13 @@ namespace Gallery3WinForm
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-          //  int lcIndex = lstWorks.SelectedIndex;
+            int lcIndex = lstWorks.SelectedIndex;
 
-          //  if (lcIndex >= 0 && MessageBox.Show("Are you sure?", "Deleting work", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (lcIndex >= 0 && MessageBox.Show("Are you sure?", "Deleting work", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-         //       _WorksList.RemoveAt(lcIndex);
+               // _WorksList.RemoveAt(lcIndex);
+                Program.SvcClient.DeleteWork(lstWorks.SelectedItem as clsWork);
+                refreshFormFromDB(_Artist.Name);
                 UpdateDisplay();
                 frmMain.Instance.UpdateDisplay();
             }

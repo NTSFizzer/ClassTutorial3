@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace Selfhost.DTO
+namespace Selfhost.DTO //it is tidier to call it this separate namespace 
 {
     [DataContract]
     public class clsArtist
@@ -39,6 +39,18 @@ namespace Selfhost.DTO
         public decimal Value { get; set; }
         [DataMember]
         public string ArtistName { get; set; }
+
+        public clsWork MapToEntity()
+        {
+            clsWork lcMapEntity = GetEntity();
+            lcMapEntity.Name = Name;
+            lcMapEntity.Date = Date;
+            lcMapEntity.Value = Value;
+            lcMapEntity.ArtistName = ArtistName;
+            return lcMapEntity;
+        }
+
+        protected abstract clsWork GetEntity();
     }
 
     [DataContract]
@@ -50,6 +62,12 @@ namespace Selfhost.DTO
         public Nullable<float> Height { get; set; } // set as Single
         [DataMember]
         public string Type { get; set; }
+
+        protected override clsWork GetEntity()
+        {
+            return new clsPhotograph()
+            { Width = this.Width, Height = this.Height, Type = this.Type};
+        }
     }
 
     [DataContract]
@@ -61,6 +79,12 @@ namespace Selfhost.DTO
         public Nullable<float> Height { get; set; }
         [DataMember]
         public string Type { get; set; }
+
+        protected override clsWork GetEntity()
+        {
+            return new clsPainting()
+            { Width = this.Width, Height = this.Height, Type = this.Type };
+        }
     }
 
     [DataContract]
@@ -70,5 +94,11 @@ namespace Selfhost.DTO
         public Nullable<float> Weight { get; set; }
         [DataMember]
         public string Material { get; set; }
+
+        protected override clsWork GetEntity()
+        {
+            return new clsSculpture()
+            { Weight = this.Weight, Material = this.Material };
+        }
     }
 }
