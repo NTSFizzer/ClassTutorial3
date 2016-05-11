@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Gallery3WinForm.ServiceReference1
+﻿namespace Gallery3WinForm.ServiceReference1
 {
     public abstract partial class clsWork
     {

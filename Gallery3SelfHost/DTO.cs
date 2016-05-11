@@ -40,9 +40,9 @@ namespace Selfhost.DTO //it is tidier to call it this separate namespace
         [DataMember]
         public string ArtistName { get; set; }
 
-        public clsWork MapToEntity()
+        public Work MapToEntity()
         {
-            clsWork lcMapEntity = GetEntity();
+            Work lcMapEntity = GetEntity();
             lcMapEntity.Name = Name;
             lcMapEntity.Date = Date;
             lcMapEntity.Value = Value;
@@ -50,7 +50,7 @@ namespace Selfhost.DTO //it is tidier to call it this separate namespace
             return lcMapEntity;
         }
 
-        protected abstract clsWork GetEntity();
+        protected abstract Work GetEntity();
     }
 
     [DataContract]
@@ -63,9 +63,9 @@ namespace Selfhost.DTO //it is tidier to call it this separate namespace
         [DataMember]
         public string Type { get; set; }
 
-        protected override clsWork GetEntity()
+        protected override Work GetEntity()
         {
-            return new clsPhotograph()
+            return new Photograph()
             { Width = this.Width, Height = this.Height, Type = this.Type};
         }
     }
@@ -80,9 +80,9 @@ namespace Selfhost.DTO //it is tidier to call it this separate namespace
         [DataMember]
         public string Type { get; set; }
 
-        protected override clsWork GetEntity()
+        protected override Work GetEntity()
         {
-            return new clsPainting()
+            return new Painting()
             { Width = this.Width, Height = this.Height, Type = this.Type };
         }
     }
@@ -95,9 +95,9 @@ namespace Selfhost.DTO //it is tidier to call it this separate namespace
         [DataMember]
         public string Material { get; set; }
 
-        protected override clsWork GetEntity()
+        protected override Work GetEntity()
         {
-            return new clsSculpture()
+            return new Sculpture()
             { Weight = this.Weight, Material = this.Material };
         }
     }

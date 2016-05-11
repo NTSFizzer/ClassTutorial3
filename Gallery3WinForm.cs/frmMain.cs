@@ -1,3 +1,4 @@
+using Gallery3WinForm.ServiceReference1;
 using System;
 using System.Windows.Forms;
 
@@ -88,7 +89,8 @@ namespace Gallery3WinForm
             if (lcKey != null && MessageBox.Show("Are you sure?", "Deleting artist", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 try
                 {
-                   // _ArtistList.Remove(lcKey);
+                    clsArtist lcArtist = new clsArtist() { Name = lcKey };
+                    Program.SvcClient.DeleteArtist(lcArtist);
                     lstArtists.ClearSelected();
                     UpdateDisplay();
 

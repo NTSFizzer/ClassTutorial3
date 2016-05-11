@@ -90,6 +90,7 @@ namespace Gallery3WinForm
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(543, 207);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.txtAnswer);

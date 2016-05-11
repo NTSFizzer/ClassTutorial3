@@ -158,10 +158,11 @@ namespace Gallery3WinForm
 
             if (lcIndex >= 0 && MessageBox.Show("Are you sure?", "Deleting work", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-               // _WorksList.RemoveAt(lcIndex);
+
+                //_WorksList.RemoveAt(lcIndex);
                 Program.SvcClient.DeleteWork(lstWorks.SelectedItem as clsWork);
                 refreshFormFromDB(_Artist.Name);
-                UpdateDisplay();
+                //UpdateDisplay();
                 frmMain.Instance.UpdateDisplay();
             }
         }

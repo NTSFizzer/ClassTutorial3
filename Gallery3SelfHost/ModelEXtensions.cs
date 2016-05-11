@@ -1,4 +1,7 @@
-﻿using Selfhost.DTO;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Gallery3SelfHost;
+using Selfhost.DTO;
 
 namespace Gallery3SelfHost
 {

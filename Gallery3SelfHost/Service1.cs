@@ -2,6 +2,7 @@
 using System.Linq;
 using Gallery3SelfHost;
 using Selfhost.DTO;
+using System;
 
 namespace Gallery3Selfhost
 {
@@ -39,12 +40,22 @@ namespace Gallery3Selfhost
             System.Data.Entity.EntityState prState) where TEntity : class
             //this a type of class instead of a value like Int or Float
         {
-            using (Gallery_DataEntities lcContext = new Gallery_DataEntities())
+            try
             {
-                lcContext.Entry(prItem).State = prState;
-                int lcCount = lcContext.SaveChanges(); //flushes and changes everything
-                //this happens in RAM - it gurantees all changes are saved in the database
-                return lcCount; //returns the number of rows affected
+                using (Gallery_DataEntities lcContext = new Gallery_DataEntities())
+                {
+                    lcContext.Entry(prItem).State = prState;
+                    int lcCount = lcContext.SaveChanges(); //flushes and changes everything
+                                                           //this happens in RAM - it gurantees all changes are saved in the database
+                    return lcCount; //returns the number of rows affected
+                }
+            }
+            catch (System.Exception ex)
+            {
+                // alt" view inner error in client
+                // throw ex.GetBaseException();
+                Console.WriteLine(ex.GetBaseException().Message);
+                return 0;
             }
         }
 
